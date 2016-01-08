@@ -26,6 +26,7 @@ public class Server {
 		}
 		try {
 			while (true) {
+				// Clients werden fortlaufend akzeptiert und ein Thread f�r sie gestartet:
 				new Handler(listener.accept()).start();
 			}
 		} finally {
@@ -42,6 +43,7 @@ public class Server {
 			this.socket = socket;
 		}
 
+		@Override
 		public void run() {
 			boolean running = true;
 			try {
@@ -53,6 +55,7 @@ public class Server {
 				String input;
 				String[] arr;
 				
+				//Implementierung des Protokolls
 				while (running){
 					input = in.readLine();
 					if (input == null) {
@@ -96,7 +99,7 @@ public class Server {
 										+ " Gültige Eingabe: m Name Nachricht");	
 							}
 							// ka wie snychronized funktioniert, evtl. überflüssig oder writer noch synchronisieren
-							synchronized(names){
+							/* synchronized(names){
 								if(!names.contains(arr[1])){
 									out.println("e Der gewünschte Nutzer ist nicht verfügbar oder die Reihenfolge der Eingaben wurde missachtet./n"
 											+ " Gültige Eingabe: m Name Nachricht");	
@@ -110,6 +113,7 @@ public class Server {
 									}catch(Exception e){ out.println("e Nachricht konnte nicht gesendet werde."); }			
 								}
 							}
+							*/
 									
 						break;
 						
@@ -129,7 +133,7 @@ public class Server {
 					
 				}
 				
-// Copy paste Teil:
+			// Aufruf bei Beenden des Servers
 
 			} catch (IOException e) {
 				System.out.println(e);
