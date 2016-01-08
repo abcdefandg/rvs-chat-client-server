@@ -98,11 +98,11 @@ public class Server {
 								out.println("e Schicken Sie Ihre Nachrichten in der gültigen Syntx ab./n"
 										+ " Gültige Eingabe: m Name Nachricht");	
 							}
-							// ka wie snychronized funktioniert, evtl. überflüssig oder writer noch synchronisieren
-							/* synchronized(names){
+							// evtl. ueberfluessig oder writer noch synchronisieren
+							synchronized(names){
 								if(!names.contains(arr[1])){
-									out.println("e Der gewünschte Nutzer ist nicht verfügbar oder die Reihenfolge der Eingaben wurde missachtet./n"
-											+ " Gültige Eingabe: m Name Nachricht");	
+									out.println("e Der gewuenschte Nutzer ist nicht verfuegbar oder die Reihenfolge der Eingaben wurde missachtet./n"
+											+ " Gueltige Eingabe: m Name Nachricht");	
 								}
 								else{
 									try{
@@ -113,7 +113,6 @@ public class Server {
 									}catch(Exception e){ out.println("e Nachricht konnte nicht gesendet werde."); }			
 								}
 							}
-							*/
 									
 						break;
 						
@@ -138,7 +137,7 @@ public class Server {
 			} catch (IOException e) {
 				System.out.println(e);
 			} finally {
-				if (running){out.println("x Verbindung aus mystriösen Gründen geschlossen ");}
+				if (running){out.println("x Verbindung aus unbekannten Gruenden geschlossen ");}
 				else out.println("x Sie haben die Verbindung beendet. Beehren Sie uns wieder");
 				if (name != null) {
 					names.remove(name);
